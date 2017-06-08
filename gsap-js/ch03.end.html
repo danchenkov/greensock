@@ -1,0 +1,98 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Learning JavaScript with Animation Chapter 3 @02geek</title>
+    <link rel="stylesheet" href="css/ch03.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script>
+      var counter = 1;
+
+      function onReady(){
+        console.log("Chapter 3");
+
+        //functionName();
+        //run(whoShouldRun);
+        //alert('Message to the user');
+
+        //run(whoShouldRun,howFast,param3,param4[...])
+        //prompt('The question','default value');
+
+        //TweenMax.set('h2',{opacity:0});
+        //TweenMax.set('.book_w_slide',{opacity:0});
+        //TweenMax.set('#myImage',{opacity:0});
+        
+        TweenMax.set('h2, .book_w_slide, #myImage',{opacity:0});
+
+        animateIn();
+        TweenMax.delayedCall(1,animateInImage);
+
+      }  
+
+      function animateIn(){
+        TweenMax.to('h2, .book_w_slide',1,{opacity:1});
+        //TweenMax.to('#myImage',1,{opacity:1});
+      }
+
+      function animateInImage(isOpa=true){
+       if(isOpa)
+          TweenMax.to('#myImage',1,{opacity:1});
+        
+        console.log(isOpa);
+        TweenMax.to('#myImage',1,{bottom:'0px'});
+        TweenMax.delayedCall(3,animateImageOut);
+      }
+
+      function animateImageOut(){
+        TweenMax.to('#myImage',1,{bottom:'-180px'});
+        //counter = counter % 4 + 1;
+        //TweenMax.delayedCall(1,swapImage,[counter]);
+        var ranNumber = resetSlideValue();
+        TweenMax.delayedCall(1,swapImage,[ranNumber]);
+      }
+
+      function resetSlideValue(){
+          var ran = Math.random() * 4;
+              ran = Math.ceil(ran);
+          
+          console.log(ran);
+
+          if(counter==ran) ran = resetSlideValue();
+
+          return ran;
+      }
+
+      
+      function swapImage(index,isAnimate=true){
+        counter = index;
+        $('#myImage').attr('src',"art/slide"+ index +".png");
+        
+        animateInImage(false);
+      }
+
+      $(document).ready(onReady); 
+    </script>
+  </head>
+  <body> <!--onload='onReady();'-->
+
+    <div id="middle">
+      <div class="slider blue"> 
+          <div class="content">
+            <div class="container">
+               <div class="slideContainer">
+      			     <div class="slide">
+      				        <h2>Learning Better Is Better</h2>
+      				        <img id='myImage' src="art/slide1.png" alt="Learning Better is BEtter" height="187" width="480"> 
+      				        <p class="book_w_slide">Understanding takes time and focus. Learning fast isn't necessarily better.
+With an array of educational tools that customize to your needs and experience learning with us is Better. </p>
+              	 </div>
+      	       </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+</body>
+</html>

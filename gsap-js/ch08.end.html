@@ -1,0 +1,97 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Learning JavaScript with Animation Chapter 8 @02geek</title>
+    <link rel="stylesheet" href="css/ch08.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script>
+      function onReady(){
+        console.log("Chapter 8");
+
+        //#80BDF2,#64798C,#262D40,#181A26
+
+       
+       // i = i+1
+       // i+=1
+/*
+        var x;
+        for(var i=10; i>0; i-- ){
+          x = ((50+25) * i) + 50;
+          y = ((50+25) * (10-i)) + 50
+          createSpan( x,y);
+          console.log(i, "nana")
+        }
+        */
+
+        var totalItemsWidth = Math.floor($(document).width() / 75) + 1;
+        var totalItemsHeight = Math.floor($(document).height() / 75) + 1;
+        console.log(totalItemsWidth);
+        
+        //for loop
+
+        for(var i=0; i<totalItemsWidth;i++){
+          for(var j=0; j<totalItemsHeight;j++){
+            createSpan(75*i,75*j);
+          }
+        }
+
+          //while
+        /*
+        var i = 0;
+        var j = 0;
+
+        while(i<totalItemsWidth){
+          while(j<totalItemsHeight){
+            createSpan(75*i,75*j);
+            j++;
+          }
+          j = i;
+          i++;
+        }
+        */
+/*
+        var i = 0;
+        var j = 0;
+
+        do{
+          
+            createSpan(75*i,0);
+            
+          i++;
+        } while(i<totalItemsWidth);
+*/
+        
+        // for in
+
+        var a = ['cat','dog','goat'];
+        var o = {cat:'says hello',dog:'barks',goat:'maaahh'};
+
+
+        for(var item in o){
+          console.log('a ' + item + ' says ' + o[item]);
+        }
+
+
+
+      }  
+
+      function createSpan(left,top){
+         var span = $(document.createElement('span'));
+            span.addClass('box');
+            span.css('left',left);
+            span.css('top',top);
+
+        $('body').append(span);
+        TweenMax.fromTo(span,1,{scale:2},{scale:0});
+
+      }
+
+      $(document).ready(onReady); 
+    </script>
+  </head>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,133 @@
+@font-face {
+    font-family: "AllerRegular";
+    font-style: normal;
+    font-weight: normal;
+    src: url("font/aller_rg-webfont.eot?#iefix") format("embedded-opentype"), url("font/aller_rg-webfont.woff") format("woff"), url("font/aller_rg-webfont.ttf") format("truetype"), url("font/aller_rg-webfont.svg#AllerRegular") format("svg");
+}
+@font-face {
+    font-family: "AllerBold";
+    font-style: normal;
+    font-weight: normal;
+    src: url("font/aller_bd-webfont.eot?#iefix") format("embedded-opentype"), url("font/aller_bd-webfont.woff") format("woff"), url("font/aller_bd-webfont.ttf") format("truetype"), url("font/aller_bd-webfont.svg#AllerBold") format("svg");
+}
+
+body {
+    background: none repeat scroll 0 0 #dedede;
+    font-family: Arial,Helvetica,sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#middle {
+    background: rgba(0, 0, 0, 0);
+    margin-top: 0;
+}
+
+#middle .slider {
+    min-width: 970px;
+    position: relative;
+    width: 100%;
+}
+
+.slider {
+    background: none repeat scroll 0 0 #3f6c4d;
+    height: 205px;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.content, .top, .middleContent, .bottom {
+    margin: 0 auto;
+    position: relative;
+    width: 950px;
+}
+
+.panel {
+    bottom: 27px;
+    left: 0;
+    position: absolute;
+    z-index: 100;
+}
+.panel a:hover, .panel a.active {
+    background-position: -13px 0;
+}
+.panel a:hover, .panel a.active {
+    background-position: -13px 0;
+}
+.slider .container {
+    float: left;
+    height: 210px;
+    overflow: hidden;
+    position: relative;
+    width: 950px;
+}
+.container {
+    padding: 0 0 1px;
+}
+
+.slideContainer {
+    float: right;
+    height: 210px;
+    position: absolute;
+    width: 3840px;
+}
+.slide h2 {
+    margin: 19px 0 5px;
+}
+.slide h1, .slide h2 {
+    color: #ffffff;
+    font-size: 45px;
+    padding: 0;
+    text-transform: capitalize;
+}
+h2 {
+    font-size: 30px;
+}
+
+.olderHead{
+    color: #eeeeee;
+}
+.expandedHead{
+    font-size: 38px;
+}
+h1, h2, h3, h4 {
+    font-family: "AllerBold";
+}
+
+.slide img {
+    bottom: 0;
+    display: block;
+    position: absolute;
+    right: 0;
+}
+
+.slide p {
+    line-height: 1.4;
+    width: 480px;
+}
+.slide {
+    color: #ffffff;
+    display: block;
+    float: left;
+    height: 210px;
+    margin-right: 10px;
+    position: relative;
+    width: 950px;
+}
+.panel {
+    bottom: -200px;
+    left: 0;
+    position: absolute;
+    z-index: 100;
+}
+
+.panel a {
+    background: url("../art/bullets.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: block;
+    float: left;
+    height: 0;
+    margin-right: 8px;
+    overflow: hidden;
+    padding: 12px 0 0;
+    width: 13px;
+}

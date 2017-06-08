@@ -1,0 +1,118 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Learning JavaScript with Animation Chapter 4 @02geek</title>
+    <link rel="stylesheet" href="css/ch03.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script>
+      var date;
+
+      function onReady(){
+        console.log("Chapter 4");
+
+        //console.log(Math.PI);
+        //console.log(Math.random());
+        //console.log(Math.max(20,10,0,-3,100));
+
+        //var myH2 = document.getElementById('myH2');
+        //    myH2.innerHTML = '02geek';
+        //var myH2 = $('#myH2');
+           // myH2.text('narf');
+
+           
+       
+       // date = new Date(); //current date
+       //date = new Date(1000);
+        date = new Date(1982,9,19);
+
+         // console.log(date);
+         // console.log(Date());
+/* 
+        var seconds = getSecondsFromBirthday(1982,10,19); 
+               
+        $('#myH2').text( seconds + " Since birth.");
+
+        var sOut = convertToMinutes(seconds) 
+                    + ' Minutes since brith'
+                    + "<br/>" 
+                    + convertToDays(seconds) 
+                    + ' Days since birth.';
+
+        
+
+        //$('.book_w_slide').text(sOut);
+        $('.book_w_slide').html(sOut);
+        */
+        
+
+        updateDate();
+        var nInterval = setInterval(updateDate,1000);
+        console.log(nInterval);
+
+        //clearInterval(nInterval);
+      } 
+
+      function updateDate(){
+        var seconds = getSecondsFromBirthday(1982,10,19); 
+        $('#myH2').text( seconds + " Since birth.");
+
+        var sOut = convertToMinutes(seconds) 
+                    + ' Minutes since brith'
+                    + "<br/>" 
+                    + convertToDays(seconds) 
+                    + ' Days since birth.';
+
+        
+
+        //$('.book_w_slide').text(sOut);
+        $('.book_w_slide').html(sOut);
+      }
+      function convertToDays(sec){
+          var DAY = 60*60*24;
+
+          return Math.floor(sec/DAY);
+      }
+
+      function convertToMinutes(sec){
+        var min = Math.floor(sec/60);
+        return min;
+      }
+
+      function getSecondsFromBirthday(year,month,date){
+          var date = new Date(year,month-1,date);
+          var now = new Date();
+          var mil = now.getTime() - date.getTime();
+          var sec = Math.round(mil/1000);
+          
+
+          return sec;
+
+      }
+
+      $(document).ready(onReady); 
+    </script>
+  </head>
+  <body>
+
+    <div id="middle">
+      <div class="slider blue"> 
+          <div class="content">
+            <div class="container">
+               <div class="slideContainer">
+      			     <div class="slide">
+      				        <h2 id='myH2'>Learning Better Is Better</h2>
+      				        <img src="art/slide1.png" alt="Learning Better is BEtter" height="187" width="480"> 
+      				        <p class="book_w_slide">Understanding takes time and focus. Learning fast isn't necessarily better.
+With an array of educational tools that customize to your needs and experience learning with us is Better. </p>
+              	 </div>
+      	       </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+</body>
+</html>

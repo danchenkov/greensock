@@ -1,0 +1,48 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Learning JavaScript with Animation Chapter 6 @02geek</title>
+    <link rel="stylesheet" href="css/ch06.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script>
+      function onReady(){
+        console.log("Chapter 6");
+
+       
+      }  
+
+      $(document).ready(onReady); 
+    </script>
+  </head>
+  <body>
+
+    <div id="middle">
+      <div class="slider blue"> 
+          <div class="content">
+            <div class="container">
+               <div class="slideContainer">
+      			     <div class="slide">
+      				        <h2>The web of connections.</h2>
+      				        <img src="art/slide4.png" alt="Learning Better is BEtter" height="187" width="480"> 
+      				        <span id='nameBlock'>
+                          <label for='tName'>Your name:</label>
+                          <input id='tName' type='text'></input>
+                      </span>
+                      <span id='dateBlock'>
+                          <label for='tName'>Your Date:</label>
+                          <input id='tDate' type='text'></input>
+                      </span>
+                      <input type='button' value='Analize' />
+                      <p class="book_w_slide">There are no relashinships as of yet. </p>
+              	 </div>
+      	       </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+</body>
+</html>

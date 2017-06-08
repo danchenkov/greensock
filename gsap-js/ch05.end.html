@@ -1,0 +1,163 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Learning JavaScript with Animation Chapter 5 @02geek</title>
+    <link rel="stylesheet" href="css/ch03.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script>
+      var age;
+      function onReady(){
+        console.log("Chapter 5");
+
+        var oSample = new Object();
+            oSample.var1 = 'value';
+            oSample.var2 = 'another value';
+            oSample.outputVar1And2 = function(){
+              console.log(this.var1, this.var2);
+              console.log(age);
+            }
+
+        var oSample2 = {var1:'value2',
+                        var2:'another value2',
+                        outputVar1And2:function(){
+                          console.log(this.var1, this.var2);
+                        }};
+
+        //console.log(oSample.var1);
+        oSample.outputVar1And2();
+       //oSample2.outputVar1And2();
+
+       /*var animateGuide = new Object();
+           animateGuide.opacity = 0;
+
+       TweenMax.from('h2',1,animateGuide);
+        TweenMax.from('img',1,animateGuide);
+         TweenMax.from('.book_w_slide',1,animateGuide);*/
+/*
+      var opa = 0;
+      var anim = {opacity:opa,fontSize:"5px",padding:"50px"};
+      var anim2 = anim;
+
+      anim.opacity = 1;
+      anim.fontSize = "45px";
+      anim.padding = "0px";
+
+      TweenMax.from('h2',1,anim2);
+     
+      */
+
+        age = createAgeObject($('h2'),1982,10,19,7);
+
+        age.output();
+
+      
+
+
+       
+      } 
+
+      function createAgeObject(tar, year,month,date,hours=0,minutes=0,seconds=0){
+        var helper;
+        var o = {target:tar};
+            o.time = getSecondsSinceBirthday(year,month,date,hours,minutes,seconds);
+            o.seconds = o.time%60;
+        helper =  Math.floor(o.time/60); //all minutes
+            o.minutes = helper%60;
+        helper =  Math.floor(helper/60); //all hours
+            o.hours = helper%24;
+            o.days =  Math.floor(helper/24);
+
+        o.output = function(){
+          var out = this.days + " Days " +
+                    this.formatDigits(this.hours) + ":" +
+                    this.formatDigits(this.minutes) + ":" + 
+                    this.formatDigits(this.seconds) ;
+
+         // console.log('....', out);
+          this.target.text(out);
+        }
+
+        o.formatDigits= function(n){
+          if(n<10) n = "0" + n;
+
+          return n;
+        }
+        o.update = function(){
+          o.updateSeconds();
+        }
+
+        o.updateSeconds = function(){
+          this.seconds++;
+
+          if(this.seconds>59){
+            this.seconds = 0;
+            this.updateMinutes();      
+          }
+          this.output();
+        }
+
+        o.updateMinutes = function(){
+          this.minutes++; 
+          if(this.minutes>59){
+            this.minutes = 0;
+            this.updateHours();      
+          }
+        }
+
+        o.updateHours = function(){
+          this.hours++; 
+          if(this.hours>23){
+            this.hours = 0;
+            this.days++;     
+          }
+        }
+        
+
+        o.timer = setInterval(function(){
+                                o.update();
+                              },1000);
+
+        o.update();
+
+
+
+        return o;
+
+
+      }
+
+      function getSecondsSinceBirthday(year,month,date,hours=0,minutes=0,seconds=0){
+        var dBirth = new Date(year,month-1,date,hours,minutes,seconds);
+        var date = new Date();
+
+        return Math.round((date.getTime()-dBirth.getTime())/1000);
+
+      }
+
+      $(document).ready(onReady); 
+    </script>
+  </head>
+  <body>
+
+    <div id="middle">
+      <div class="slider blue"> 
+          <div class="content">
+            <div class="container">
+               <div class="slideContainer">
+      			     <div class="slide">
+      				        <h2>Learning Better Is Better</h2>
+      				        <img src="art/slide1.png" alt="Learning Better is BEtter" height="187" width="480"> 
+      				        <p class="book_w_slide">Understanding takes time and focus. Learning fast isn't necessarily better.
+With an array of educational tools that customize to your needs and experience learning with us is Better. </p>
+              	 </div>
+      	       </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+</body>
+</html>

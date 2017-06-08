@@ -1,0 +1,31 @@
+body {
+    background-color: #41a8d2;
+    font-family: Arial,Helvetica,sans-serif;
+    margin: 0;
+    padding: 0;
+}
+#label{
+	position: absolute;
+	z-index: 1;
+	right: 5px;
+	top: 5px;
+	font-size: 18px;
+	color:white;
+}
+#controlBar{
+	position: absolute;
+	bottom: 30px;
+	left:10px;
+}
+.btn{
+	background-color: #333333;
+	color:#FFFFFF;
+	padding:5px;
+	margin:5px;
+	cursor: pointer; cursor: hand;
+
+}
+
+.elements{
+	position: absolute;
+}

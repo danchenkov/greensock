@@ -1,0 +1,55 @@
+body {
+    background: none repeat scroll 0 0 #dedede;
+    font-family: Arial,Helvetica,sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#middle{
+    width:100%;
+}
+
+.slider{
+    height: 405px;
+    padding: 10px;
+    border-width: 5px;
+    border-color: #DEAB67;
+    border-style: solid;
+    overflow: hidden;
+}
+
+.content{
+    height: 395px;
+    border-width: 5px;
+    border-color: #15120C;
+    border-style: solid;
+    overflow: hidden;
+}
+
+.blue {
+    background-color: #41a8d2;
+}
+
+.content img{
+    position: relative;
+}
+
+.tracker{
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+    opacity: .7;
+}
+
+.trackerBody{
+    height: 20px;
+    width: 1%;
+    background-color: black;
+    position: absolute;
+}
+
+
+
+

@@ -1,0 +1,178 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Learning JavaScript with Animation Chapter 6 @02geek</title>
+    <link rel="stylesheet" href="css/ch06.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script>
+      var linker = {tName:'tDate',tDate:'btnAnalize'};
+      var db = {};
+
+      function onReady(){
+        console.log("Chapter 6");
+
+        //var o = new Object();
+        /*var o = {key:'value'};
+            o.key
+            o['ke' + 'y']
+            */
+
+        var oProp = { left:'#nameBlock',
+                      center:'#dateBlock',
+                      right:'#btnAnalize'};
+       /* var a = new Array();
+        a[0] = 100;
+        a[1]= 300;
+
+        console.log(a[1]);
+        */
+        
+        //expand3Right(oProp,15,'.book_w_slide',.3);
+
+        var aProp = ['#tNameLabel','#tName','#tDateLabel','#tDate','#btnAnalize'];
+        expandRightArray(aProp,15,'.book_w_slide',.3);
+
+        
+        $('#tDate').prop('disabled', true);
+        $('#btnAnalize').prop('disabled', true);
+        $('#tName').on('keyup',onChangeInput);
+        $('#tDate').on('keyup',onChangeInput);
+        $('#btnAnalize').on('click',analize);
+        //onChangeName({target:{value:$('#tName').val()}});
+      } 
+      
+      function onChangeInput(e){
+        var id = $(e.target).prop('id');
+        
+        $('#'+linker[id]).prop('disabled', e.target.value.length==0);
+      }
+      /*
+      function onChangeDate(e){
+        console.log(e);
+        if(e.target.value.length)
+          $('#btnAnalize').prop('disabled', false);
+      }*/
+
+      function analize(e){
+        var name = $('#tName').val();
+        var date = $('#tDate').val()
+        
+        if(!db[name]) db[name] = [];
+
+        db[name].push(date);
+
+        $('.book_w_slide').text(name +" dates " + db[name].join(', '));
+        //db
+      }
+
+      function expandRightArray(aProps,padding=17,bottomItem=false,delay=.4){
+
+        var smallPad = Math.round(padding/3);
+        var x = 0;
+
+        TweenMax.set(aProps,{position:'absolute',left:'0px', opacity:0});
+
+        
+        if(bottomItem){
+          var marginTop = $(bottomItem).css('margin-top');
+
+          if(marginTop.indexOf('px')>-1){
+            marginTop = parseInt(marginTop.slice(0,marginTop.indexOf('px')));
+          }else{
+            marginTop = 0;
+          }
+
+          //console.log("cats are really cool".indexOf('dog'));
+
+          marginTop = Math.max(marginTop,$(aProps[0]).height());
+          marginTop+= smallPad;
+          
+          TweenMax.to(bottomItem,0.5,{marginTop:marginTop +'px'});
+
+        }
+
+        TweenMax.to(aProps[0],1,{opacity:1});
+        positionElement(aProps,1,delay,x,padding);
+        
+        
+      } 
+
+      function positionElement(aProps,index,delay,x,padding){
+        x += $(aProps[index-1]).width() + padding;
+        TweenMax.to(aProps[index],1,{opacity:1,left:x+'px',delay:delay*index});
+        if(aProps[index+1]) positionElement(aProps,index+1,delay,x,padding)
+
+        return x; 
+
+      }
+
+      function expand3Right(props,padding=17,bottomItem=false,delay=.4){
+        var smallPad = Math.round(padding/3);
+        var x = 0;
+
+        TweenMax.set(props.left,{position:'absolute',left:'0px', opacity:0});
+         TweenMax.set(props.center,{position:'absolute',left:'0px', opacity:0});
+          TweenMax.set(props.right,{position:'absolute',left:'0px', opacity:0});
+
+        if(bottomItem){
+          var marginTop = $(bottomItem).css('margin-top');
+
+          if(marginTop.indexOf('px')>-1){
+            marginTop = parseInt(marginTop.slice(0,marginTop.indexOf('px')));
+          }else{
+            marginTop = 0;
+          }
+
+          //console.log("cats are really cool".indexOf('dog'));
+
+          marginTop = Math.max(marginTop,$(props.left).height());
+          marginTop+= smallPad;
+          
+          TweenMax.to(bottomItem,0.5,{marginTop:marginTop +'px'});
+
+        }
+
+        TweenMax.to(props.left,1,{opacity:1});
+        x += $(props.left).width() + padding;
+        TweenMax.to(props.center,1,{opacity:1,left:x+'px',delay:delay});
+        x += $(props.center).width() + padding;
+        TweenMax.to(props.right,1,{opacity:1,left:x+'px',marginTop:smallPad+'px',delay:delay*2});
+        
+      } 
+
+      $(document).ready(onReady); 
+    </script>
+  </head>
+  <body>
+
+    <div id="middle">
+      <div class="slider blue"> 
+          <div class="content">
+            <div class="container">
+               <div class="slideContainer">
+      			     <div class="slide">
+      				        <h2>The web of connections.</h2>
+      				        <img src="art/slide4.png" alt="Learning Better is BEtter" height="187" width="480"> 
+      				        <span id='nameBlock'>
+                          <label id='tNameLabel' for='tName'>Your name:</label>
+                          <input id='tName' type='text'></input>
+                      </span>
+
+                      <span id='dateBlock'>
+                          <label id='tDateLabel' for='tName'>Your Date:</label>
+                          <input id='tDate' type='text'></input>
+                      </span>
+                      <input id='btnAnalize' type='button' value='Analize' />
+                      <p class="book_w_slide">There are no relashinships as of yet. </p>
+              	 </div>
+      	       </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+</body>
+</html>

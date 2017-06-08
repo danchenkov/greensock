@@ -1,0 +1,68 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Learning JavaScript with Animation Chapter 2 @02geek</title>
+    <link rel="stylesheet" href="css/ch02.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script>
+      function onReady(){
+        console.log("Chapter 2");
+
+        //TweenMax.to(item,time,{property:value});
+        var bCustem = confirm('Do you want a custom animation?');
+            //true false 
+        console.log(bCustem);
+
+        var sName = 'Ringo';
+        var nAnimTime = 1;
+
+        if(bCustem){
+            sName = prompt('What is your name?','Ringo');
+            nAnimTime = prompt('How long will the base animation be?',1);
+        }        
+
+        
+        var nOpacity = 1;
+        var sSlideHeadline = ".slide h2";
+
+        TweenMax.to(sSlideHeadline,nAnimTime,{opacity:nOpacity});
+
+        //nAnimTime = nAnimTime + 1;  // + - / * %
+        nAnimTime = nAnimTime * 2;
+
+        TweenMax.to(".slideContainer p.book_w_slide",nAnimTime,
+                    {opacity:nOpacity});
+
+        nAnimTime = nAnimTime * 2;
+
+        TweenMax.to(".slide img",nAnimTime,{opacity:nOpacity});
+        $(sSlideHeadline).text(sName + ', Learning Better is Better');
+      }  
+
+      $(document).ready(onReady); 
+    </script>
+  </head>
+  <body>
+
+    <div id="middle">
+      <div class="slider blue"> 
+          <div class="content">
+            <div class="container">
+               <div class="slideContainer">
+      			     <div class="slide">
+      				        <h2>Programing Better Is Better</h2>
+      				        <img src="art/slide2.png" alt="flash cs5.5 course catalog" height="187" width="480"> 
+      				        <p class="book_w_slide">Learning takes time and focus.
+      				We offer both with an array of educational tools that customize to your needs and experience.</p>
+              	 </div>
+      	       </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+@font-face {
+    font-family: "AllerRegular";
+    font-style: normal;
+    font-weight: normal;
+    src: url("font/aller_rg-webfont.eot?#iefix") format("embedded-opentype"), url("font/aller_rg-webfont.woff") format("woff"), url("font/aller_rg-webfont.ttf") format("truetype"), url("font/aller_rg-webfont.svg#AllerRegular") format("svg");
+}
+@font-face {
+    font-family: "AllerBold";
+    font-style: normal;
+    font-weight: normal;
+    src: url("font/aller_bd-webfont.eot?#iefix") format("embedded-opentype"), url("font/aller_bd-webfont.woff") format("woff"), url("font/aller_bd-webfont.ttf") format("truetype"), url("font/aller_bd-webfont.svg#AllerBold") format("svg");
+}
+
+body {
+    background: none repeat scroll 0 0 #dedede;
+    font-family: Arial,Helvetica,sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+.content {
+    margin: 0 auto;
+    position: relative;
+    width: 950px;
+}
+
+.courses_slider {
+    height: 165px;
+    margin: 0 2px;
+    padding-top: 7px;
+    position: relative;
+    width: 950px;
+}
+
+.courses_slider .red-column {
+    background-color: #c1272d;
+    float: left;
+    height: 144px;
+    margin-left: -2px;
+    width: 24px;
+}
+
+.courses_slider .red-column span {
+    color: #ffffff;
+    font-family: "AllerRegular";
+    font-size: 24px;
+    margin-left: -12px;
+    margin-top: 59px;
+    position: absolute;
+    transform: rotate(270deg);
+}
+
+.courses_slider ul {
+    margin: 0;
+    padding: 0;
+}
+
+.courses_slider li {
+    background-color: #4d4d4d;
+    cursor: pointer;
+    float: left;
+    height: 144px;
+    list-style: outside none none;
+    margin-left: 9px;
+    position: relative;
+    width: 290px;
+}
+.courses li {
+    color: white;
+    font-size: 13px;
+    line-height: 1.5em;
+    list-style: outside none none;
+}
+
+.courses_slider .absolute {
+    position: absolute;
+    z-index: 2;
+}
+
+.courses_slider li.blue .left {
+    background-color: #3fa9f5;
+}
+.courses_slider li .left {
+    color: #fff;
+    float: left;
+    font-family: "AllerRegular";
+    font-size: 36px;
+    height: 108px;
+    line-height: 0.9;
+    list-style: outside none none;
+    margin-left: 8px;
+    margin-top: 8px;
+    padding: 10px 14px;
+    width: 102px;
+}
+
+.courses_slider li .right {
+    color: #fff;
+    float: left;
+    font-family: "AllerRegular";
+    font-size: 16px;
+    list-style: outside none none;
+    margin-left: 8px;
+    margin-top: 18px;
+    width: 144px;
+}
+
+.courses_slider li .right span {
+    bottom: 0;
+    display: block;
+    left: 146px;
+    position: absolute;
+}
+
+.courses_slider li.blue .bg {
+    background-color: #3fa9f5;
+}
+.courses_slider li .bg {
+    bottom: 0;
+    height: 2;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.courses_slider li.orange .bg {
+    background-color: #eb880d;
+}
+.courses_slider li.orange .left {
+    background-color: #eb880d;
+}

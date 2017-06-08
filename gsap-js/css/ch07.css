@@ -1,0 +1,19 @@
+body {
+    background: none repeat scroll 0 0 #dedede;
+    font-family: Arial,Helvetica,sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+.content {
+    margin: 0 auto;
+    position: relative;
+    width: 950px;
+    text-align: center;
+}
+
+
+.blue {
+    background: none repeat scroll 0 0 #41a8d2;
+}

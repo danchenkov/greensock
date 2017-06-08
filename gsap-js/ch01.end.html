@@ -1,0 +1,55 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Learning JavaScript with Animation Chapter 1 @02geek</title>
+    <link rel="stylesheet" href="css/ch01.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script>
+      // alert('Hello Chapter 1')
+      //alert( document.getElementById('middle') )
+      /*$(document).ready(onReady);
+      */
+      
+
+      function onReady(){
+        //alert( document.getElementById('middle') );
+
+        TweenMax.from($('.slide'),1, {left:'2000px'});
+
+        // TweenMax.from(whatIsAnimating, howLong, whattoanimate)
+      }  
+       
+
+      $(document).ready(onReady); 
+
+      function talkBack(val){
+          console.log('no you didn\'t say ' + val);
+      }  
+
+    </script>
+
+  </head>
+  <body> <!--onload="alert( document.getElementById('middle') )"--> 
+
+    <div id="middle">
+      <div class="slider blue"> 
+          <div class="content">
+            <div class="container">
+               <div class="slideContainer">
+                 <div class="slide">
+                      <h2>Programing Better Is Better</h2>
+                      <img src="art/slide2.png" alt="flash cs5.5 course catalog" height="187" width="480"> 
+                      <p class="book_w_slide">Learning takes time and focus.
+              We offer both with an array of educational tools that customize to your needs and experience.</p>
+                 </div>
+               </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+</body>
+</html>

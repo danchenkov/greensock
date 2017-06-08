@@ -1,0 +1,56 @@
+body {
+    background: none repeat scroll 0 0 #dedede;
+    font-family: Arial,Helvetica,sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+.content {
+    margin: 0 auto;
+    position: relative;
+    width: 950px;
+}
+
+.slider {
+    height: 205px;
+    overflow: hidden;
+    z-index: 0;
+}
+
+
+.slide img {
+    bottom: 0;
+    display: block;
+    position: absolute;
+    right: 0;
+}
+
+.slideContainer p.book_w_slide {
+    width: 395px;
+    font-size: 18px;
+}
+
+.slide {
+    color: #ffffff;
+    display: block;
+    float: left;
+    height: 210px;
+    margin-right: 10px;
+    position: relative;
+    width: 950px;
+}
+
+.slide h2 {
+    margin: 19px 0 5px;
+}
+
+.blue {
+    background: none repeat scroll 0 0 #41a8d2;
+}
+.slide h1, .slide h2 {
+    color: #ffffff;
+    font-size: 45px;
+    padding: 0;
+    text-transform: capitalize;
+}
